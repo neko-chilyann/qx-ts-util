@@ -1,0 +1,45 @@
+{
+  "name": "qx-util",
+  "version": "0.0.1",
+  "description": "青璇工具包",
+  "license": "MIT",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/qx-util/qx-util.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "serve": "stencil build --dev --watch --serve --no-open",
+    "test": "stencil test --spec",
+    "test.watch": "stencil test --spec --watchAll",
+    "generate": "stencil generate"
+  },
+  "dependencies": {
+    "@stencil/core": "^2.3.0",
+    "ramda": "^0.27.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-eslint": "^8.0.1",
+    "@types/jest": "26.0.20",
+    "@types/node": "^14.14.22",
+    "@types/ramda": "^0.27.36",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "26.6.3",
+    "jest-cli": "26.6.3",
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "rollup-pluginutils": "^2.8.2",
+    "typescript": "^4.1.3"
+  }
+}
