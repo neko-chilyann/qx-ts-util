@@ -1,6 +1,7 @@
-dist*
+dist/
 www/
 loader/
+.history/
 
 *~
 *.sw[mnpcod]
