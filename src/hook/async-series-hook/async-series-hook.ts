@@ -23,7 +23,7 @@ export class AsyncSeriesHook<T, C = null> {
   private items: IHookCallItem[] = [];
 
   /**
-   * 触发钩子
+   * 触发钩子，当某个钩子返回「null」时，中断后续执行。
    *
    * @param {C} context
    * @param {...AsArray<T>} args
@@ -32,14 +32,19 @@ export class AsyncSeriesHook<T, C = null> {
    */
   async call(context: C, ...args: AsArray<T>): Promise<C> {
     const _context: C = context || Object.create({});
+    let bol: any;
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i];
       if (item.fn) {
         if (item.mode === 'promise') {
-          await item.fn(_context, ...args);
+          bol = await item.fn(_context, ...args);
         } else {
-          item.fn(_context, ...args);
+          bol = item.fn(_context, ...args);
         }
+      }
+      if (bol === null) {
+        console.warn(`因${item.fn?.name}方法返回值为「null」，钩子中断执行。`, item);
+        break;
       }
     }
     return _context;

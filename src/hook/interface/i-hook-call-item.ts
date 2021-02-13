@@ -14,9 +14,9 @@ export interface IHookCallItem {
    */
   mode: 'sync' | 'promise';
   /**
-   * 回调
+   * 回调，「当返回值为null时，方法执行断掉后续不执行。」
    *
    * @memberof IHookCallItem
    */
-  fn?: ((...args: any[]) => void) | ((...args: any[]) => Promise<void>);
+  fn?: (...args: any[]) => void | null | Promise<void | null>;
 }
