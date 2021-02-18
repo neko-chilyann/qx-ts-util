@@ -1,24 +1,14 @@
 import { isEmpty, isNil } from 'ramda';
 
 /**
- * 创建 UUID
- *
- * @export
- * @return {*}  {string}
- */
-(window as any).___ibz___IDCount = 0;
-export function getPrimaryKey(): number {
-  return (window as any).___ibz___IDCount++;
-}
-function S4() {
-  return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-}
-/**
  * 生成唯一标识
  *
  * @export
  * @return {*}  {string}
  */
+function S4() {
+  return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+}
 export function createUUID(): string {
   return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
 }

@@ -4,7 +4,7 @@
  * @export
  * @param {unknown} data
  */
-export function clearAll(data: unknown) {
+export function clearAll(data: unknown): void {
   if (data instanceof Array) {
     if (data && data.length > 0) {
       data.splice(0, data.length);
