@@ -24,7 +24,7 @@ export class QXEvent<T> {
   constructor() {
     this.e = new QXEventEmitter();
     // 设置最大监控事件数量
-    this.e.setMaxListeners(100);
+    this.e.setMaxListeners(300);
   }
 
   /**
