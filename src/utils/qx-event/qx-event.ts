@@ -1,4 +1,4 @@
-import { EventEmitter } from 'events';
+import { QXEventEmitter } from '../qx-event-emitter/qx-event-emitter';
 
 /**
  * 事件
@@ -12,17 +12,17 @@ export class QXEvent<T> {
    * 事件初始化
    *
    * @private
-   * @type {EventEmitter}
+   * @type {QXEventEmitter}
    * @memberof QXEvent
    */
-  private e: EventEmitter;
+  private e: QXEventEmitter;
 
   /**
    * Creates an instance of QXEvent.
    * @memberof QXEvent
    */
   constructor() {
-    this.e = new EventEmitter();
+    this.e = new QXEventEmitter();
     // 设置最大监控事件数量
     this.e.setMaxListeners(100);
   }
