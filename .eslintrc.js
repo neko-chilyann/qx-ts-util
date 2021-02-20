@@ -22,5 +22,6 @@ module.exports = {
     '@typescript-eslint/no-inferrable-types': [0],
     '@typescript-eslint/no-unused-vars': [0, { varsIgnorePattern: 'h|Component|__stencil_registerInstance' }],
     'prefer-rest-params': [0],
+    'no-var': [0],
   },
 };
