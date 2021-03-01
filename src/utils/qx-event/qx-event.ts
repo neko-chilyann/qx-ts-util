@@ -19,12 +19,13 @@ export class QXEvent<T> {
 
   /**
    * Creates an instance of QXEvent.
+   * @param {number} [maxListeners] 最大单个事件监听个数
    * @memberof QXEvent
    */
-  constructor() {
+  constructor(maxListeners?: number) {
     this.e = new QXEventEmitter();
     // 设置最大监控事件数量
-    this.e.setMaxListeners(300);
+    this.e.setMaxListeners(maxListeners || 300);
   }
 
   /**
@@ -56,10 +57,10 @@ export class QXEvent<T> {
    *
    * @template K
    * @param {K} name
-   * @param {*} arg
+   * @param {T[K]} [arg]
    * @memberof QXEvent
    */
-  emit<K extends keyof T>(name: K, arg): void {
+  emit<K extends keyof T>(name: K, arg?: T[K]): void {
     this.e.emit(name as string, arg);
   }
 }
